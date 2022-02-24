@@ -4,9 +4,4 @@ BUILD_DIR=${1:-}
 CACHE_DIR=${2:-}
 ENV_DIR=${3:-}
 
-wget https://github.com/gobuffalo/cli/releases/download/v0.18.2/buffalo_0.18.2_Linux_x86_64.tar.gz
-tar -xvzf buffalo_0.18.2_Linux_x86_64.tar.gz
-
-echo "-----> Compile the client application"
-yarn install
-./buffalo build --static -o bin/app
+echo "-----> nothing"
