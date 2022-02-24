@@ -1,0 +1,16 @@
+#!/bin/bash
+
+BUILD_DIR=${1:-}
+CACHE_DIR=${2:-}
+ENV_DIR=${3:-}
+
+echo "-----> Install gcc"
+apt-get install --yes golang yarn
+
+wget https://github.com/gobuffalo/cli/releases/download/v0.18.2/buffalo_0.18.2_Linux_x86_64.tar.gz
+tar -xvzf buffalo_0.18.2_Linux_x86_64.tar.gz
+mv buffalo /usr/local/bin/buffalo
+
+echo "-----> Compile the client application"
+yarn install --no-progress
+buffalo build --static -o bin/app
